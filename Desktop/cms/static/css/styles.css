@@ -1,0 +1,378 @@
+body{
+   animation: transitionIn 0.80s;
+}
+
+@keyframes transitionIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0px);
+  }
+}
+
+
+@media only screen and (max-width:768px){
+  body{
+    margin-left: 10%;
+    margin-right: 10%;
+  }
+}
+.login{
+  margin-top: 100px;
+  /* font-family: 'Montserrat', sans-serif; */
+}
+
+
+.login-img{
+  margin-top: 30px;
+  width: 100%;
+  object-fit: cover;
+  text-align: center;
+}
+
+.login-details{
+padding-left: 140px;
+text-align: center;
+margin-top: 50px;
+}
+
+.brandname{
+  margin: 70px auto 70px auto;
+  letter-spacing: 1px;
+  width: 100%;
+  text-align: center;
+}
+
+.loginform{
+  padding-top: 30px;
+
+  }
+
+.loginform input{
+  padding: 8px;
+  margin-bottom: 10px;
+  width: 280px;
+  border-radius: 20px;
+  border-width: thin;
+
+}
+input:focus {
+  border-color:#b4d0e7;
+  /* box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.075) inset, 0px 0px 8px rgba(51, 103, 214, 1); */
+  outline: none;
+
+}
+
+.login-btn{
+  margin-top: 15px;
+}
+
+
+button.login-btn{
+background-color:#fbd46d;
+  width: 45%;
+  height: 40px;
+  border-color: #fbd46d;
+  border-radius:30px;
+  color:black;
+  outline: none;
+  transition: width 0.5s, height 0.5s;
+}
+
+ button.login-btn:focus {
+  outline: none;
+}
+
+
+
+button:hover {
+  animation: bounce 0.5s;
+}
+
+@keyframes bounce {
+  50% {
+    -webkit-transform: translateY(-6px);
+    transform: translateY(-6px);
+  }
+
+  /* 100% {
+    -webkit-transform: translateY(-6px);
+    transform: translateY(-6px);
+  } */
+
+}
+
+@media only screen and (max-width:768px){
+  .login-details{
+    padding-left: 0;
+  }
+  .login-img{
+    margin-top: 0px;
+    padding: auto 20%;
+    height: 200px;
+  }
+  .login-btn{
+    margin-top: 0;
+    margin-bottom: 15px;
+  }
+
+  .brandname{
+    padding: 0 20% 0 20%;
+  }
+
+}
+
+/* -----------------------cms page--------------------------------- */
+
+
+
+.navbar{
+background-color:#b4d0e7;
+}
+
+.nav-div{
+  padding-right: 100px;
+}
+
+button.logout-btn{
+  background-color:#fbd46d;
+  width: 100px;
+  height: 30px;
+  border-color: #fbd46d;
+  border-radius:30px;
+  color:black;
+  outline: none;
+  transition: width 0.5s, height 0.5s;
+}
+
+ button.logout-btn:focus {
+  outline: none;
+}
+
+.add{
+  margin: 200px auto auto 200px;
+}
+
+.list-img{
+  width: 70%;
+  object-fit: cover;
+  text-align: center;
+  margin: 50px auto auto 200px;
+}
+
+button.add-btn{
+  background-color:#fbd46d;
+  width: 140px;
+  height: 35px;
+  border-color: #fbd46d;
+  border-radius:30px;
+  color:black;
+  outline: none;
+  transition: width 0.5s, height 0.5s;
+
+}
+
+ button.add-btn:focus {
+  outline: none;
+}
+
+.edit{
+  color: #e97171;
+
+}
+
+.edit:hover{
+    text-decoration: none;
+    color: black;
+}
+
+.table1{
+width:100%;
+padding-right:5%;
+}
+
+.table2{
+margin-top:0px;
+ width:100%;
+ margin-right:auto;
+ padding-left:5%;
+
+}
+
+.last-table{
+  margin-bottom:100px;
+}
+
+
+
+@media only screen and (max-width: 768px){
+  .add{
+    margin: auto;
+    padding-top: 10%;
+    text-align: center;
+  }
+
+  .list-img{
+    width: 70%;
+    margin: 10% auto auto auto;
+
+  }
+
+  .top-img{
+    text-align: center;
+
+  }
+
+  button.add-btn{
+
+    width: 130px;
+    height: 35px;
+
+
+  }
+
+
+  .nav-div{
+    padding-right: 0px;
+  }
+
+
+  .table2{
+    margin-top: 100px;
+
+  }
+
+}
+
+
+
+
+/* ---------------------addclient--------------------------------- */
+
+
+.form{
+  margin-left:100px;
+  margin-right: 100px;
+  margin-top: 100px;
+
+}
+
+
+.addclient-form input{
+  width: 180px;
+  border-radius: 20px;
+  height: 30px;
+  border-width: thin;
+  padding: 10px;
+  font-size: 14px;
+
+}
+
+a.dash-btn{
+  background-color:#fbd46d;
+  width: 140px;
+  height: 35px;
+  border-color: #fbd46d;
+  border-radius:30px;
+  color:black;
+  outline: none;
+  transition: width 0.5s, height 0.5s;
+
+
+}
+
+a.dash-btn:hover {
+  animation: bounce 1s;
+}
+
+
+.div-add-btn{
+  padding-left: 50px;
+  display: inline;
+}
+
+
+.theLabels{
+  width:30%
+  float: left;
+}
+
+.theInputs{
+  width:60%;
+  float:right;
+}
+.form-group label{
+  margin-left:120px;
+}
+
+/*  */
+.formcontainer{
+  width:90%;
+}
+
+
+@media only screen and (max-width: 768px){
+  .form{
+    margin:auto;
+    text-align: center;
+
+  }
+
+  label{
+    margin-left: 0px;
+
+  }
+
+  .addclient-form input{
+    width: 120px;
+    border-radius: 20px;
+    height: 25px;
+    padding: 8px;
+    margin-right: 10px;
+    font-size: 14px;
+  }
+
+
+  .form-group label{
+    margin-left:10px;
+  }
+  /* .theLabels{
+  text-align:left;
+  } */
+  .row{
+    margin-right: 20px;
+  }
+
+  .div-add-btn{
+    padding-left: 10px;
+
+  }
+}
+
+
+/* -------------------------table---------------------------------------- */
+/* table {
+  counter-reset: rowNumber;
+}
+
+table tbody tr::before {
+  display: table-cell;
+  counter-increment: rowNumber;
+  content: counter(rowNumber) ".";
+  padding-right: 0.3em;
+  text-align: center;
+} */
+
+
+/* -----------------------------edit-client page----------------------------------- */
+
+.edit-heading{
+  padding-top: 80px;
+  text-align: center;
+  font-size: 18px;
+  word-spacing: 2px;
+}

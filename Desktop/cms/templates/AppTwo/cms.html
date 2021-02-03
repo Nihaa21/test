@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>CMS</title>
+  <link rel="stylesheet" href="/static/css/styles.css?{% now "U" %}">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
+  <script src="https://kit.fontawesome.com/7272020985.js" crossorigin="anonymous"></script>
+
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+  <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.22/css/jquery.dataTables.min.css">
+  <script type="text/javascript" src="https://cdn.datatables.net/1.10.22/js/jquery.dataTables.min.js"></script>
+
+</head>
+
+<body>
+
+
+
+  <nav class="navbar navbar-expand-lg navbar-light shadow-sm ">
+    <div class="container nav-div">
+      <a class="navbar-brand" href="#">ScrapeNext Technologies</a>
+      <button class="btn btn-sm logout-btn" type="button" onclick="location.href='{% url 'user_logout' %}'">Logout</button>
+    </div>
+  </nav>
+
+  <!-- <p>User <b>{{user.username}}</b> is logged in successfully.</p> -->
+
+  {% block body_block %}
+
+
+  <div class="container">
+    <div class="mt-5">
+      {% include 'AppTwo/messages.html' %}
+    </div>
+
+
+    <div class="row">
+      <div class="col-lg-6">
+        <div class="add">
+          <button class="btn add-btn" type="button" onclick="location.href='{% url 'add_client' %}'"><i class="fas fa-plus" style="padding-right:10px;"></i>Add client</button>
+
+        </div>
+      </div>
+
+      <div class="col-lg-6 top-img">
+
+        <img class="list-img" src="{% static "images/checklist.png" %}" alt="">
+      </div>
+    </div>
+
+  </div>
+
+
+
+  <div class="container" style="margin-top: 100px;">
+<div class="row">
+
+
+    <div class="col-lg-6 table1 pl-5 pr-5">
+
+      <table id="clientData" class="table table-striped table-borderless .table-sm ">
+
+        <thead style="background-color:#b4d0e7;">
+          <tr >
+            <th style="width:60%;">Client Name</th>
+            <th style="width:50%"></th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for clients in view_clients %}
+          <tr>
+
+            <td>{{ clients.client_name.title }}</td>
+            <td>
+              <a class="edit" href="/edit_client/{{ clients.id }}"><i class="fas fa-pencil-alt"></i> Edit</a>
+            </td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+
+
+    <div class="col-lg-6 table2 pl-5 pr-5">
+
+      <table id="clientData2" class=" table-striped  table-borderless .table-sm ">
+        <thead style="background-color:#b4d0e7;">
+          <tr>
+
+            <th>Domain Expiring</th>
+            <th>Date</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for item in dates %}
+          <tr>
+
+            <td>{{ item.domain_name }}</td>
+            <td>{{ item.expiry_date }}</td>
+          </tr>
+          {% endfor %}
+
+
+        </tbody>
+      </table>
+    </div>
+
+
+  </div>
+    </div>
+
+
+
+
+
+
+<div class="container" style="margin-top: 100px;">
+  <div class="row">
+
+
+    <div class="col-lg-6 table1 pl-5 pr-5">
+
+      <table id="clientData3" class=" table-striped  table-borderless ">
+        <thead style="background-color:#b4d0e7;">
+          <tr>
+
+            <th>Expiring Hosting</th>
+            <th>Date</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for item in hostingdates %}
+          <tr>
+
+            <td>{{ item.hosting_account }}</td>
+            <td>{{ item.hosting_expiry_date }}</td>
+          </tr>
+          {% endfor %}
+
+
+        </tbody>
+      </table>
+    </div>
+
+
+    <div class="col-lg-6 table2 pl-5 pr-5">
+
+      <table id="clientData4" class=" table-striped  table-borderless ">
+        <thead style="background-color:#b4d0e7;">
+          <tr>
+
+            <th>Expiring SLL</th>
+            <th>Date</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for item in sll_dates %}
+          <tr>
+
+            <td>{{ item.sll_account }}</td>
+            <td>{{ item.sll_expiry_date }}</td>
+          </tr>
+          {% endfor %}
+
+
+        </tbody>
+      </table>
+    </div>
+
+
+  </div>
+
+</div>
+
+
+
+<div class="container" style="margin-top: 100px;">
+  <div class="row">
+
+    <div class="col-lg-6 table1 pl-5 pr-5">
+
+      <table id="clientData5" class=" table-striped  table-borderless ">
+        <thead style="background-color:#b4d0e7;">
+          <tr>
+
+            <th>Expiring AMC</th>
+            <!-- <th>Date</th> -->
+          </tr>
+        </thead>
+        <tbody>
+          {% for item in amc_dates %}
+          <tr>
+
+            <td >{{ item.amc_expiry_date }}</td>
+            <!-- <td>{{ item. }}</td> -->
+          </tr>
+          {% endfor %}
+
+
+        </tbody>
+      </table>
+    </div>
+
+
+    <div class="col-lg-6 table2 pl-5 pr-5">
+
+      <table id="clientData6" class=" table-striped  table-borderless ">
+        <thead style="background-color:#b4d0e7;">
+          <tr>
+
+            <th>Last Update Logs</th>
+            <!-- <th>Date</th> -->
+          </tr>
+        </thead>
+        <tbody>
+          {% for item in updated_logs %}
+          <tr>
+
+            <td>{{ item.updated_date }}</td>
+            <!-- <td>{{ item. }}</td> -->
+          </tr>
+          {% endfor %}
+
+
+        </tbody>
+      </table>
+    </div>
+
+</div>
+</div>
+
+
+
+<div class="container" style="margin-top: 100px;">
+  <div class="row">
+
+<div class="col-lg-6 table1 last-table pl-5 pr-5">
+
+  <table id="clientData7" class=" table-striped  table-borderless ">
+    <thead style="background-color:#b4d0e7;">
+      <tr>
+
+        <th>ChatBot Last Checked Dates</th>
+        <!-- <th>Date</th> -->
+      </tr>
+    </thead>
+    <tbody>
+      {% for item in chatbot_dates %}
+      <tr>
+
+        <td>{{ item.chatbot_last_date}}</td>
+        <!-- <td>{{ item. }}</td> -->
+      </tr>
+      {% endfor %}
+
+
+    </tbody>
+  </table>
+</div>
+</div>
+</div>
+
+
+
+
+
+
+
+
+
+
+  <script type="text/javascript">
+    setTimeout(function() {
+      if ($('#msg').length > 0) {
+        $('#msg').remove();
+      }
+    }, 3000)
+
+
+    $(document).ready(function() {
+      $('#clientData').DataTable({
+        "ordering": false,
+      });
+
+    });
+
+    $(document).ready(function() {
+      $('#clientData2').DataTable({
+        "ordering": false,
+        // "info": false,
+      });
+    });
+
+
+    $(document).ready(function() {
+      $('#clientData3').DataTable({
+        "ordering": false,
+      });
+
+    });
+
+    $(document).ready(function() {
+      $('#clientData4').DataTable({
+        "ordering": false,
+      });
+
+    });
+
+    $(document).ready(function() {
+      $('#clientData5').DataTable({
+        "ordering": false,
+      });
+
+    });
+
+    $(document).ready(function() {
+      $('#clientData6').DataTable({
+        "ordering": false,
+      });
+
+    });
+
+    $(document).ready(function() {
+      $('#clientData7').DataTable({
+        "ordering": false,
+      });
+
+    });
+
+
+  </script>
+
+
+
+  {% endblock %}
+
+
+
+</body>
+
+</html>

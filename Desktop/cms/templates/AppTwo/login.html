@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+
+{% load static %}
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>ScrapNext</title>
+  <link rel="stylesheet" href="/static/css/styles.css?{% now "U" %}" >
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+<link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
+</head>
+
+
+<body style="background-color:#f7f7f7; ">
+{% block body_block %}
+
+  <div class="brandname">
+    <h2>ScrapeNext Technologies</h2>
+    <p>Content Management System</p>
+  </div>
+
+
+
+  <div class="container login ">
+
+    <div class="row">
+      <div class="col-lg-6 col-sm-6 ">
+        <img class="login-img" src="{% static "images/notes.png" %}" alt="">
+      </div>
+
+      <div class="col-lg-6 col-sm-6">
+        <div class="login-details">
+
+          <h5>LOGIN</h5>
+
+          <form class="loginform" method="post">
+          {% csrf_token %}
+            <input type="text"  name="username"  placeholder="Username" required><br>
+            <input type="password"  name="password"  placeholder="Password" required><br><br>
+
+          <p style="color:red">{{error}}</p>
+
+            <div class="login-btn">
+              <button class="btn login-btn" type="submit">Login</button>
+                </div>
+            </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+{% endblock %}
+
+
+
+
+
+</body>
+
+</html>
